@@ -1,0 +1,235 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f5f7fa;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 30px;
+    padding: 20px;
+    background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+    color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+header p {
+    font-size: 1.1rem;
+    opacity: 0.9;
+}
+
+main {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 25px;
+}
+
+@media (min-width: 992px) {
+    main {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+section {
+    background: white;
+    border-radius: 10px;
+    padding: 25px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+h2 {
+    color: #2c3e50;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #3498db;
+}
+
+.upload-area {
+    border: 2px dashed #3498db;
+    border-radius: 8px;
+    padding: 30px;
+    text-align: center;
+    margin-bottom: 20px;
+    background-color: #f8f9fa;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.upload-area:hover {
+    background-color: #e3f2fd;
+    border-color: #2980b9;
+}
+
+.upload-area p {
+    margin-bottom: 15px;
+    color: #7f8c8d;
+}
+
+#browseBtn {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+}
+
+#browseBtn:hover {
+    background-color: #2980b9;
+}
+
+#textInput {
+    width: 100%;
+    height: 200px;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-family: inherit;
+    font-size: 1rem;
+    resize: vertical;
+}
+
+.settings-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 15px;
+}
+
+@media (min-width: 768px) {
+    .settings-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.setting-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.setting-item label {
+    margin-bottom: 5px;
+    font-weight: 600;
+    color: #2c3e50;
+}
+
+.setting-item select,
+.setting-item input[type="number"] {
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.margin-controls {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+}
+
+.margin-controls input {
+    width: 100%;
+}
+
+.preview-container {
+    border: 1px solid #eee;
+    border-radius: 5px;
+    overflow: auto;
+    max-height: 400px;
+    background-color: #fff;
+}
+
+.preview-area {
+    padding: 30px;
+    line-height: 1.6;
+    font-family: 'Times New Roman', serif;
+    font-size: 14pt;
+    white-space: pre-wrap;
+}
+
+.preview-area p {
+    text-indent: 1.25cm;
+    margin-bottom: 0;
+    margin-top: 0;
+}
+
+.actions-section {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    grid-column: 1 / -1;
+}
+
+.action-btn {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 600;
+}
+
+#formatBtn {
+    background-color: #3498db;
+    color: white;
+}
+
+#formatBtn:hover {
+    background-color: #2980b9;
+}
+
+.export-btn {
+    background-color: #2ecc71;
+    color: white;
+}
+
+.export-btn:hover {
+    background-color: #27ae60;
+}
+
+footer {
+    text-align: center;
+    margin-top: 40px;
+    padding: 20px;
+    color: #7f8c8d;
+    font-size: 0.9rem;
+}
+
+/* Formatting preview styles */
+.formatted-preview {
+    font-family: 'Times New Roman', serif;
+    font-size: 14pt;
+    line-height: 1.5;
+    text-align: justify;
+}
+
+.formatted-preview p {
+    text-indent: 1.25cm;
+    margin: 0;
+    margin-bottom: 0;
+}
+
+.formatted-preview .paragraph-spacing {
+    margin-bottom: 0.5cm;
+}
