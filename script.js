@@ -193,12 +193,18 @@ async function exportToDocx() {
         return;
     }
     
+    // Проверка доступности библиотеки docx
+    if (typeof docx === 'undefined' || typeof docx.Document === 'undefined') {
+        alert('Библиотека docx не загружена. Пожалуйста, обновите страницу.');
+        return;
+    }
+    
     // Получение параметров форматирования
     const settings = getFormattingSettings();
     
     try {
         // Создание документа с помощью библиотеки docx
-        const { Document, Paragraph, TextRun, HeadingLevel, AlignmentType, PageBreak, SectionType, ShadingType } = docx;
+        const { Document, Paragraph, TextRun, HeadingLevel, AlignmentType } = docx;
         
         // Разделение текста на абзацы
         const paragraphs = (formattedText || originalText).split(/\n\s*\n/);
@@ -222,12 +228,10 @@ async function exportToDocx() {
                         text: cleanParagraph,
                         spacing: {
                             after: Math.round(settings.paragraphSpacing * 20 * 72/2.54) || 0, // преобразование см в twips
+                            line: settings.lineSpacing * 240, // множитель для междустрочного интервала
                         },
                         indent: {
                             firstLine: Math.round(settings.indentSize * 20 * 72/2.54) || 0, // преобразование см в twips
-                        },
-                        spacing: {
-                            line: settings.lineSpacing * 240, // множитель для междустрочного интервала
                         },
                         alignment: AlignmentType.JUSTIFIED,
                     });
@@ -254,7 +258,6 @@ async function exportToDocx() {
         });
         
         // Генерация и скачивание файла
-        const { Blob } = docx;
         const packer = new docx.Packer();
         const blob = await packer.toBlob(doc);
         
