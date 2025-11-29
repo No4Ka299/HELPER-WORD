@@ -252,8 +252,7 @@ async function exportToDocx() {
         });
         
         // Генерация и скачивание файла
-        const packer = new docx.Packer();
-        const blob = await packer.toBlob(doc);
+        const blob = await docx.Packer.toBlob(doc);
         
         // Создание ссылки для скачивания
         const url = URL.createObjectURL(blob);
