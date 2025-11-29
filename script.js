@@ -222,12 +222,10 @@ async function exportToDocx() {
                         text: cleanParagraph,
                         spacing: {
                             after: Math.round(settings.paragraphSpacing * 20 * 72/2.54) || 0, // преобразование см в twips
+                            line: settings.lineSpacing * 240, // множитель для междустрочного интервала
                         },
                         indent: {
                             firstLine: Math.round(settings.indentSize * 20 * 72/2.54) || 0, // преобразование см в twips
-                        },
-                        spacing: {
-                            line: settings.lineSpacing * 240, // множитель для междустрочного интервала
                         },
                         alignment: AlignmentType.JUSTIFIED,
                     });
@@ -254,7 +252,6 @@ async function exportToDocx() {
         });
         
         // Генерация и скачивание файла
-        const { Blob } = docx;
         const packer = new docx.Packer();
         const blob = await packer.toBlob(doc);
         
